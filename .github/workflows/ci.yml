@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [develop, master, main, feature/lab1]
+  pull_request:
+    branches: [develop, master, main]
+
+jobs:
+  build-and-test:
+    name: Build & Test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run CI script (Linux / macOS)
+        if: runner.os != 'Windows'
+        run: bash ci.sh
+
+      - name: Run CI script (Windows)
+        if: runner.os == 'Windows'
+        shell: cmd
+        run: ci.bat
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-${{ matrix.os }}
+          path: coverage/
+          if-no-files-found: ignore

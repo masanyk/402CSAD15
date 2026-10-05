@@ -1,0 +1,6 @@
+ci.sh text eol=lf
+ci.bat text eol=crlf
+*.md text eol=lf
+*.json text eol=lf
+*.js text eol=lf
+*.yml text eol=lf
