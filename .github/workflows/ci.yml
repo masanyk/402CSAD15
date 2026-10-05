@@ -30,6 +30,7 @@ jobs:
 
       - name: Run CI script (Windows)
         if: runner.os == 'Windows'
+        shell: cmd
         run: ci.bat
 
       - name: Upload coverage report
