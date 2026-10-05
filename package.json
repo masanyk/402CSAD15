@@ -1,0 +1,20 @@
+{
+  "name": "apks-lab1-hello-world",
+  "version": "1.0.0",
+  "description": "Кросплатформний Hello World проєкт. Лабораторна робота №1, КІ-402, Варіант 15.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": ["**/tests/**/*.test.js"]
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
+  "author": "Процак Максим Степанович",
+  "license": "MIT"
+}
