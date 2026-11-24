@@ -1,0 +1,10 @@
+{
+  "autodeskProduct": "Fusion360",
+  "type": "script",
+  "author": "Процак М.С., КІ-402",
+  "description": {
+    "": "ЛР4 АПКС: цифра 2 з опуклим, увігнутим і наскрізним текстом ПІБ, експорт STL"
+  },
+  "supportedOS": "windows|mac",
+  "editEnabled": true
+}

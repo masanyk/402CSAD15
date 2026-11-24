@@ -1,0 +1,6 @@
+(load (strcat (getenv "USERPROFILE") "\\lab4_cad\\lab4_digit2.lsp"))
+(lab4-texts)
+TXTEXP
+_ALL
+
+(lab4-build)
