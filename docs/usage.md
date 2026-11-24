@@ -60,8 +60,23 @@ PASS tests/index.test.js
 PASS tests/math.test.js
 
 Test Suites: 2 passed, 2 total
-Tests:       4 passed, 4 total
+Tests:       9 passed, 9 total
 ```
+
+### Складання виконуваного файлу hello
+```bash
+npm run build
+./build/hello/hello          # Linux / macOS → Hello, World!
+```
+```cmd
+buildhellohello.cmd        :: Windows → Hello, World!
+```
+Каталог `build/` в `.gitignore` і не комітиться.
+
+Готовий виконуваний файл для кожної ОС можна завантажити з GitHub Actions:
+відкрий запуск workflow → секція **Artifacts** → `hello-<os>`.
+Після розпакування на Linux/macOS поверни право виконання: `chmod +x hello`
+(архів артефактів GitHub не зберігає біт виконання). Потрібен встановлений Node.js.
 
 ### Запуск тестів з покриттям коду
 ```bash
@@ -87,6 +102,7 @@ ci.bat
 ## GitHub Actions
 
 Після push до гілки `develop` або `feature/lab1`:
-1. Зайди на `https://github.com/masanyk/apks-lab1/actions`
+1. Зайди на `https://github.com/masanyk/402CSAD15/actions`
 2. Знайди запущений workflow "CI"
 3. Переконайся, що всі три матричні задачі (Ubuntu, Windows, macOS) зелені ✅
+4. Внизу сторінки запуску в **Artifacts** мають бути `hello-*` та `coverage-*`

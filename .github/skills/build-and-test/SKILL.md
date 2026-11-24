@@ -21,7 +21,10 @@ applies_when: Проєкт вже проскафолджений і потріб
 tests/
   index.test.js   ← тести для greet()
   math.test.js    ← тести для add() та subtract()
-package.json      ← оновлений з "test": "jest", "start": "node src/index.js"
+scripts/
+  build.js        ← складання: створює build/hello/hello та build/hello/hello.cmd
+package.json      ← оновлений з "start", "build", "test", "test:coverage"
+build/            ← результат складання (НЕ комітиться, є в .gitignore)
 ```
 
 ## Дії skill
@@ -34,6 +37,7 @@ package.json      ← оновлений з "test": "jest", "start": "node src/i
    {
      "scripts": {
        "start": "node src/index.js",
+       "build": "node scripts/build.js",
        "test": "jest",
        "test:coverage": "jest --coverage"
      },
@@ -57,7 +61,10 @@ package.json      ← оновлений з "test": "jest", "start": "node src/i
 4. Створити `tests/math.test.js`:
    ```javascript
    const { add, subtract } = require('../src/math');
-   describe('math functions', () => {
+   describe('add function', () => {
+     test('BasicAddition', () => {
+       expect(add(1, 1)).toBe(2);
+     });
      test('adds two numbers correctly', () => {
        expect(add(2, 3)).toBe(5);
      });
@@ -66,11 +73,22 @@ package.json      ← оновлений з "test": "jest", "start": "node src/i
      });
    });
    ```
+5. Створити `scripts/build.js` (Node.js, без сторонніх залежностей), який:
+   - перестворює лише каталог `build/hello/`;
+   - копіює `src/*.js` у `build/hello/lib/`;
+   - створює виконуваний файл `build/hello/hello` (`#!/bin/sh` → `exec node "$DIR/lib/index.js"`, права 755);
+   - створює `build/hello/hello.cmd` для Windows (`node "%~dp0lib\index.js" %*`).
+6. Додати `build/` до `.gitignore` (якщо ще немає).
+
+## Приклад входу
+`test_framework = "jest"`, у репозиторії вже є `src/index.js` та `src/math.js`.
 
 ## Перевірка результату
 ```bash
-npm test
-# Усі тести повинні пройти (PASS)
+npm test              # усі тести PASS, серед них BasicAddition
+npm run build         # Build OK: build/hello
+./build/hello/hello   # Hello, World!   (Windows: build\hello\hello.cmd)
+git status --ignored  # build/ позначено як ignored
 ```
 
 ## Типовий сценарій помилки

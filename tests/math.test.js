@@ -1,6 +1,10 @@
 const { add, subtract } = require('../src/math');
 
 describe('add function', () => {
+  test('BasicAddition', () => {
+    expect(add(1, 1)).toBe(2);
+  });
+
   test('adds two positive numbers', () => {
     expect(add(2, 3)).toBe(5);
   });

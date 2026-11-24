@@ -27,21 +27,27 @@
 - [ ] `tests/index.test.js` та `tests/math.test.js` існують
 - [ ] `npm test` виконується успішно (всі тести PASS)
 - [ ] `npm start` виводить "Hello, World!"
+- [ ] серед тестів є `BasicAddition`, і він PASS
+- [ ] `npm run build` створює `build/hello/hello` та `build/hello/hello.cmd`
+- [ ] `build/hello/hello` (Windows: `build\hello\hello.cmd`) виводить "Hello, World!"
 
 ### 5. Перевірка CI
 - [ ] `.github/workflows/ci.yml` існує
 - [ ] Матриця містить: ubuntu-latest, windows-latest, macos-latest
 - [ ] `ci.yml` викликає `ci.sh` / `ci.bat`, а не прямі npm команди
-- [ ] `ci.sh` та `ci.bat` існують
+- [ ] `ci.sh` та `ci.bat` існують і виконують build → запуск hello → тести
+- [ ] Workflow викладає артефакт `hello-${{ matrix.os }}` з `build/hello/`
 
 ### 6. Перевірка Git
 - [ ] `node_modules/` відсутній у Git (`git ls-files node_modules` — порожньо)
-- [ ] `.gitignore` містить: `node_modules/`, `*.log`, `.env`, `coverage/`
+- [ ] `.gitignore` містить: `node_modules/`, `*.log`, `.env`, `coverage/`, `build/`
+- [ ] `git ls-files build` — порожньо
 - [ ] Немає uncommitted секретів або токенів
 
 ### 7. Перевірка документації
 - [ ] `docs/architecture.md` існує
 - [ ] `docs/usage.md` містить команди запуску агента та проєкту
+- [ ] `docs/ai-log.md` (журнал AI) містить запити, відповіді, помилки та рішення
 
 ## Звіт
 Після перевірки вивести:
