@@ -1,0 +1,975 @@
+(export
+	(version "E")
+	(design
+		(source "C:\\Users\\maksp\\OneDrive\\Робочий стіл\\masanyk\\4 курс\\АПКС\\Лаб2\\kicad\\lab2.kicad_sch")
+		(date "2026-11-24T16:43:53")
+		(tool "Eeschema 10.0.8")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title "ЛР2 АПКС: плата за GUID")
+				(company "НУ \"Львівська політехніка\", КІ-402")
+				(rev "1")
+				(date "2026-11-24")
+				(source "lab2.kicad_sch")
+				(comment
+					(number "1")
+					(value "Процак М.С., варіант 15")
+				)
+				(comment
+					(number "2")
+					(value "GUID 026d6220-80f6-5b5d-ac5d-0a5dfb622ab7")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components
+		(comp
+			(ref "J1")
+			(value "FREE")
+			(footprint "lab2:CONN3")
+			(fields
+				(field
+					(name "Footprint") "lab2:CONN3")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "lab2")
+				(part "J_FREE")
+				(description "Роз'єм вільних пінів")
+			)
+			(property
+				(name "Sheetname")
+				(value "lab2")
+			)
+			(property
+				(name "Sheetfile")
+				(value "lab2.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "fc794c4e-1878-5738-bb67-9ee6a477b56b")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U1")
+			(value "026d6220")
+			(footprint "lab2:SQ8")
+			(fields
+				(field
+					(name "Footprint") "lab2:SQ8")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "lab2")
+				(part "U1_026d6220")
+				(description "Компонент 8x8 мм з групи GUID 026d6220")
+			)
+			(property
+				(name "Sheetname")
+				(value "lab2")
+			)
+			(property
+				(name "Sheetfile")
+				(value "lab2.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "b3eb0621-c436-598a-abc2-5af7f18a9a1e")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "5")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U2")
+			(value "80f6")
+			(footprint "lab2:SQ4")
+			(fields
+				(field
+					(name "Footprint") "lab2:SQ4")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "lab2")
+				(part "U2_80f6")
+				(description "Компонент 4x4 мм з групи GUID 80f6")
+			)
+			(property
+				(name "Sheetname")
+				(value "lab2")
+			)
+			(property
+				(name "Sheetfile")
+				(value "lab2.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "6ffb6182-3485-5ec7-8a60-d3e045668573")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U3")
+			(value "5b5d")
+			(footprint "lab2:SQ4")
+			(fields
+				(field
+					(name "Footprint") "lab2:SQ4")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "lab2")
+				(part "U3_5b5d")
+				(description "Компонент 4x4 мм з групи GUID 5b5d")
+			)
+			(property
+				(name "Sheetname")
+				(value "lab2")
+			)
+			(property
+				(name "Sheetfile")
+				(value "lab2.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "182c406b-4a61-5ceb-a083-24284e2c67c5")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U4")
+			(value "ac5d")
+			(footprint "lab2:SQ4")
+			(fields
+				(field
+					(name "Footprint") "lab2:SQ4")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "lab2")
+				(part "U4_ac5d")
+				(description "Компонент 4x4 мм з групи GUID ac5d")
+			)
+			(property
+				(name "Sheetname")
+				(value "lab2")
+			)
+			(property
+				(name "Sheetfile")
+				(value "lab2.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "0a84180c-7480-5f63-af8f-9da740da141d")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U5")
+			(value "0a5dfb622ab7")
+			(footprint "lab2:SQ12")
+			(fields
+				(field
+					(name "Footprint") "lab2:SQ12")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "lab2")
+				(part "U5_0a5dfb622ab7")
+				(description "Компонент 12x12 мм з групи GUID 0a5dfb622ab7")
+			)
+			(property
+				(name "Sheetname")
+				(value "lab2")
+			)
+			(property
+				(name "Sheetfile")
+				(value "lab2.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "ee98e840-1cb1-5c70-be2d-df81eddfbcae")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "7")
+						)
+					)
+				)
+			)
+		)
+	)
+	(groups)
+	(variants)
+	(libparts
+		(libpart
+			(lib "lab2")
+			(part "J_FREE")
+			(description "Роз'єм вільних пінів")
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "FREE")
+				(field
+					(name "Footprint") "lab2:CONN3")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Роз'єм вільних пінів")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "7")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "8")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "c")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "lab2")
+			(part "U1_026d6220")
+			(description "Компонент 8x8 мм з групи GUID 026d6220")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "026d6220")
+				(field
+					(name "Footprint") "lab2:SQ8")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Компонент 8x8 мм з групи GUID 026d6220")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "0")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "6")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "d")
+					(type "passive")
+				)
+				(pin
+					(num "5")
+					(name "6")
+					(type "passive")
+				)
+				(pin
+					(num "6")
+					(name "2")
+					(type "passive")
+				)
+				(pin
+					(num "7")
+					(name "2")
+					(type "passive")
+				)
+				(pin
+					(num "8")
+					(name "0")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "lab2")
+			(part "U2_80f6")
+			(description "Компонент 4x4 мм з групи GUID 80f6")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "80f6")
+				(field
+					(name "Footprint") "lab2:SQ4")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Компонент 4x4 мм з групи GUID 80f6")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "8")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "0")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "f")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "6")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "lab2")
+			(part "U3_5b5d")
+			(description "Компонент 4x4 мм з групи GUID 5b5d")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "5b5d")
+				(field
+					(name "Footprint") "lab2:SQ4")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Компонент 4x4 мм з групи GUID 5b5d")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "5")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "b")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "5")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "d")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "lab2")
+			(part "U4_ac5d")
+			(description "Компонент 4x4 мм з групи GUID ac5d")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "ac5d")
+				(field
+					(name "Footprint") "lab2:SQ4")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Компонент 4x4 мм з групи GUID ac5d")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "a")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "c")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "5")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "d")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "lab2")
+			(part "U5_0a5dfb622ab7")
+			(description "Компонент 12x12 мм з групи GUID 0a5dfb622ab7")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "0a5dfb622ab7")
+				(field
+					(name "Footprint") "lab2:SQ12")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Компонент 12x12 мм з групи GUID 0a5dfb622ab7")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "0")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "a")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "5")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "d")
+					(type "passive")
+				)
+				(pin
+					(num "5")
+					(name "f")
+					(type "passive")
+				)
+				(pin
+					(num "6")
+					(name "b")
+					(type "passive")
+				)
+				(pin
+					(num "7")
+					(name "6")
+					(type "passive")
+				)
+				(pin
+					(num "8")
+					(name "2")
+					(type "passive")
+				)
+				(pin
+					(num "9")
+					(name "2")
+					(type "passive")
+				)
+				(pin
+					(num "10")
+					(name "a")
+					(type "passive")
+				)
+				(pin
+					(num "11")
+					(name "b")
+					(type "passive")
+				)
+				(pin
+					(num "12")
+					(name "7")
+					(type "passive")
+				)
+			)
+		)
+	)
+	(libraries
+		(library
+			(logical "lab2")
+			(uri "${KIPRJMOD}/lab2.kicad_sym")
+		)
+	)
+	(nets
+		(net
+			(code "1")
+			(name "/FREE_7")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "1")
+				(pinfunction "7_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "12")
+				(pinfunction "7_12")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "2")
+			(name "/FREE_8")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "2")
+				(pinfunction "8_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U2")
+				(pin "1")
+				(pinfunction "8_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "3")
+			(name "/FREE_c")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "3")
+				(pinfunction "c_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "U4")
+				(pin "2")
+				(pinfunction "c_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "4")
+			(name "/N_0")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "1")
+				(pinfunction "0_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "8")
+				(pinfunction "0_8")
+				(pintype "passive")
+			)
+			(node
+				(ref "U2")
+				(pin "2")
+				(pinfunction "0_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "1")
+				(pinfunction "0_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "5")
+			(name "/N_2")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "6")
+				(pinfunction "2_6")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "7")
+				(pinfunction "2_7")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "8")
+				(pinfunction "2_8")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "9")
+				(pinfunction "2_9")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "6")
+			(name "/N_5")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "1")
+				(pinfunction "5_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U3")
+				(pin "3")
+				(pinfunction "5_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "U4")
+				(pin "3")
+				(pinfunction "5_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "3")
+				(pinfunction "5_3")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "7")
+			(name "/N_6")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "3")
+				(pinfunction "6_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "5")
+				(pinfunction "6_5")
+				(pintype "passive")
+			)
+			(node
+				(ref "U2")
+				(pin "4")
+				(pinfunction "6_4")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "7")
+				(pinfunction "6_7")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "8")
+			(name "/N_a")
+			(class "Default")
+			(node
+				(ref "U4")
+				(pin "1")
+				(pinfunction "a_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "10")
+				(pinfunction "a_10")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "2")
+				(pinfunction "a_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "9")
+			(name "/N_b")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "2")
+				(pinfunction "b_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "11")
+				(pinfunction "b_11")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "6")
+				(pinfunction "b_6")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "10")
+			(name "/N_d")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "4")
+				(pinfunction "d_4")
+				(pintype "passive")
+			)
+			(node
+				(ref "U3")
+				(pin "4")
+				(pinfunction "d_4")
+				(pintype "passive")
+			)
+			(node
+				(ref "U4")
+				(pin "4")
+				(pinfunction "d_4")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "4")
+				(pinfunction "d_4")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "11")
+			(name "/N_f")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "3")
+				(pinfunction "f_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "5")
+				(pinfunction "f_5")
+				(pintype "passive")
+			)
+		)
+	)
+)
