@@ -31,6 +31,8 @@
          ▼              ▼              ▼
     src/index.js   tests/*.test.js   ci.yml
     src/math.js    package.json      ci.sh / ci.bat
+                   scripts/build.js  артефакт hello-<os>
+                   → build/hello/
 ```
 
 ## Skills
@@ -38,8 +40,8 @@
 | Skill | Вхід | Вихід |
 |-------|------|-------|
 | `project-scaffold` | назва проєкту, мова | `src/`, `package.json`, `.gitignore` |
-| `build-and-test` | тестовий фреймворк | `tests/`, оновлений `package.json` |
-| `github-actions` | версія Node, тригери | `ci.yml`, `ci.sh`, `ci.bat` |
+| `build-and-test` | тестовий фреймворк | `tests/`, `scripts/build.js`, оновлений `package.json`, виконуваний `build/hello/hello` |
+| `github-actions` | версія Node, тригери | `ci.yml`, `ci.sh`, `ci.bat`, артефакти `hello-<os>` |
 
 ## Commands
 
@@ -56,7 +58,8 @@
 
 - `/git-init` перевіряє наявність `.git/` → передає статус до `/create-project`
 - `/create-project` створює `src/` → `/create-build` використовує ці файли
-- `/create-build` встановлює Jest → `/create-actions` може посилатися на `npm test`
+- `/create-build` встановлює Jest і додає `npm run build` → `/create-actions` викликає їх у `ci.sh`/`ci.bat`
+- `ci.sh`/`ci.bat` збирають `build/hello/` → workflow викладає його як артефакт
 - `/check` читає всі файли і звітує про їх стан
 
 ## Обробка помилок оркестратором
@@ -84,3 +87,10 @@
 | Command create-actions | `.github/prompts/create-actions.prompt.md` |
 | Command check | `.github/prompts/check.prompt.md` |
 | Orchestrator | `.github/prompts/init.prompt.md` |
+| Скрипт складання | `scripts/build.js` |
+| Журнал AI | `docs/ai-log.md` |
+
+У методичці command-файли мають розширення `.prompt.md` у `.github/prompts/` — це
+стандартний формат prompt files GitHub Copilot у VS Code, тому структура збігається
+з рекомендованою. Замість `CMakeLists.txt` (варіант C++) роль системи складання
+виконують `package.json` (npm scripts) і `scripts/build.js`.

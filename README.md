@@ -1,4 +1,4 @@
-# apks-lab1
+# 402CSAD15 — Лабораторна робота №1 (АПКС)
 
 **Студент:** Процак Максим Степанович  
 **Група:** КІ-402  
@@ -38,13 +38,23 @@ npm start
 
 # Запустити тести
 npm test
+
+# Зібрати виконуваний файл і запустити його
+npm run build
+./build/hello/hello        # Windows: buildhellohello.cmd
 ```
+
+## Документація
+
+- [Архітектура агента](docs/architecture.md)
+- [Інструкція запуску](docs/usage.md)
+- [Журнал роботи з AI](docs/ai-log.md)
 
 ## CI/CD
 
 GitHub Actions автоматично запускає збірку і тести при кожному push до `develop`.
 
-[![CI](https://github.com/masanyk/apks-lab1/actions/workflows/ci.yml/badge.svg)](https://github.com/masanyk/apks-lab1/actions/workflows/ci.yml)
+[![CI](https://github.com/masanyk/402CSAD15/actions/workflows/ci.yml/badge.svg)](https://github.com/masanyk/402CSAD15/actions/workflows/ci.yml)
 
 Перевіряються три операційні системи:
 - ✅ Ubuntu (Linux)
