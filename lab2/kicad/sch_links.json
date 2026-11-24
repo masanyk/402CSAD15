@@ -1,0 +1,27 @@
+{
+  "root": "1ae82aeb-e4c1-56df-b9c7-d12f217a3f75",
+  "symbols": {
+    "J1": "fc794c4e-1878-5738-bb67-9ee6a477b56b",
+    "U2": "6ffb6182-3485-5ec7-8a60-d3e045668573",
+    "U4": "0a84180c-7480-5f63-af8f-9da740da141d",
+    "U1": "b3eb0621-c436-598a-abc2-5af7f18a9a1e",
+    "U5": "ee98e840-1cb1-5c70-be2d-df81eddfbcae",
+    "U3": "182c406b-4a61-5ceb-a083-24284e2c67c5"
+  },
+  "footprints": {
+    "U1": "lab2:SQ8",
+    "U2": "lab2:SQ4",
+    "U3": "lab2:SQ4",
+    "U4": "lab2:SQ4",
+    "U5": "lab2:SQ12",
+    "J1": "lab2:CONN3"
+  },
+  "values": {
+    "U1": "026d6220",
+    "U2": "80f6",
+    "U3": "5b5d",
+    "U4": "ac5d",
+    "U5": "0a5dfb622ab7",
+    "J1": "FREE"
+  }
+}

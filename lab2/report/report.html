@@ -1,0 +1,138 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><title>ЛР2 АПКС</title><style>
+@page Section1 { size: 21.0cm 29.7cm; margin: 2.0cm 1.25cm 1.5cm 1.75cm; }
+div.Section1 { page: Section1; }
+body { font-family: 'Times New Roman'; font-size: 14pt; }
+p { margin: 0 0 6pt 0; text-align: justify; line-height: 115%; }
+p.c { text-align: center; }
+h1 { font-size: 14pt; text-align: center; margin: 12pt 0 6pt 0; }
+h2 { font-size: 14pt; margin: 12pt 0 6pt 0; }
+h3 { font-size: 14pt; font-style: italic; margin: 10pt 0 4pt 0; }
+table { border-collapse: collapse; margin: 4pt 0 8pt 0; }
+td, th { border: 1px solid #000; padding: 2pt 5pt; font-size: 12pt; vertical-align: top; }
+th { background: #e8e8e8; }
+pre, .code { font-family: 'Consolas'; font-size: 10pt; line-height: 110%; margin: 4pt 0 8pt 0; }
+.cap { text-align: center; font-size: 12pt; margin-bottom: 10pt; }
+</style></head><body><div class="Section1"><p class="c">МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ</p>
+<p class="c">НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ «ЛЬВІВСЬКА ПОЛІТЕХНІКА»</p>
+<p class="c">Інститут комп’ютерних технологій, автоматики та метрології</p>
+<p class="c">кафедра “Електронних обчислювальних машин”</p>
+<p class="c"><img src="logo.jpeg" width="220"></p>
+<p class="c" style="font-size:20pt;font-weight:bold;margin-top:18pt">Звіт</p>
+<p class="c">з лабораторної роботи №2</p>
+<p class="c">з дисципліни «Автоматизація проєктування комп'ютерних систем»</p>
+<p class="c">на тему: «Проєктування та топологія друкованої плати»</p>
+<p class="c">Варіант 15</p>
+<p style="margin-top:60pt;margin-left:9.5cm;text-align:left">Виконав:<br>студент групи КІ-402<br>Процак М.С.</p>
+<p style="margin-left:9.5cm;text-align:left">Перевірив:<br>Шпіцер А.С.</p>
+<p class="c" style="margin-top:120pt">Львів – 2026</p>
+<br clear="all" style="page-break-before:always">
+<h1>ЛАБОРАТОРНА РОБОТА №2<br>Проєктування та топологія друкованої плати</h1>
+<p><b>Мета роботи:</b> набути практичних навичок проєктування друкованих плат у САПР, дотримуючись жорстких конструктивних обмежень, та застосувати навички роботи з нестандартним технічним завданням, що базується на алгоритмічній генерації параметрів.</p>
+<h2>1. Технічне завдання</h2>
+<ol><li>Згенерувати GUID на основі хешування повного імені (Прізвище, Ім'я, По батькові).</li><li>Кожна група GUID — квадратний компонент U1…U5; довжина групи — сторона в мм; кожен символ — пін; однакові символи — рівнозначні піни.</li><li>Створити символи та футпринти U1…U5, з'єднати однакові піни; вільні піни вивести на край однієї меншої сторони плати.</li><li>Плата не більше 85.6 × 53.98 мм (кредитна картка); розміщення «більше зв'язків — ближче»; двошарове трасування без гострих кутів з мінімальною довжиною доріжок.</li><li>Виконати DRC та сформувати комплект Gerber RS-274X.</li></ol>
+<p><b>САПР:</b> KiCad 10.0.8 (методичка допускає EasyEDA, Altium Designer або KiCad). Автотрасувальник — Freerouting 2.1.0 (формат обміну Specctra DSN/SES). Усі етапи відтворюються скриптами (<span class="code">scripts/build.sh</span>): генерація бібліотеки та схеми, ERC, плата, трасування, DRC з перевіркою відповідності схемі, Gerber і зображення.</p>
+<h2>2. Генерація GUID і розрахунок розмірів елементів</h2>
+<p>GUID отримано детерміновано як UUID версії 5 (RFC 4122): SHA-1 хеш повного імені в просторі імен <span class="code">NAMESPACE_DNS</span>. Повторний запуск завжди дає той самий результат:</p>
+<pre>import uuid
+FULL_NAME = "Процак Максим Степанович"
+GUID = str(uuid.uuid5(uuid.NAMESPACE_DNS, FULL_NAME))
+# -&gt; 026d6220-80f6-5b5d-ac5d-0a5dfb622ab7</pre>
+<p class="c" style="font-size:16pt"><b>GUID: 026d6220-80f6-5b5d-ac5d-0a5dfb622ab7</b></p>
+<table><tr><th>Компонент</th><th>Група GUID</th><th>Довжина групи</th><th>Розмір, мм</th><th>Піни (№: символ)</th><th>Футпринт</th></tr>
+<tr><td>U1</td><td class="code">026d6220</td><td>8 символів</td><td>8 × 8</td><td class="code">1:0, 2:2, 3:6, 4:d, 5:6, 6:2, 7:2, 8:0</td><td>SQ8</td></tr>
+<tr><td>U2</td><td class="code">80f6</td><td>4 символів</td><td>4 × 4</td><td class="code">1:8, 2:0, 3:f, 4:6</td><td>SQ4</td></tr>
+<tr><td>U3</td><td class="code">5b5d</td><td>4 символів</td><td>4 × 4</td><td class="code">1:5, 2:b, 3:5, 4:d</td><td>SQ4</td></tr>
+<tr><td>U4</td><td class="code">ac5d</td><td>4 символів</td><td>4 × 4</td><td class="code">1:a, 2:c, 3:5, 4:d</td><td>SQ4</td></tr>
+<tr><td>U5</td><td class="code">0a5dfb622ab7</td><td>12 символів</td><td>12 × 12</td><td class="code">1:0, 2:a, 3:5, 4:d, 5:f, 6:b, 7:6, 8:2, 9:2, 10:a, 11:b, 12:7</td><td>SQ12</td></tr>
+</table>
+<p>Отже: U1 — 8 × 8 мм (8 пінів), U2, U3, U4 — по 4 × 4 мм (4 піни), U5 — 12 × 12 мм (12 пінів); усього 32 піни. Розміри збігаються для будь-якого GUID (формат 8-4-4-4-12), а унікальним для варіанта є набір символів, тобто з'єднання.</p>
+<h2>3. Таблиця з'єднань</h2>
+<p>Правило: усі піни з однаковим символом GUID утворюють одне коло <span class="code">N_&lt;символ&gt;</span>. Якщо символ повторюється в межах одного компонента (наприклад «0» у U1 на пінах 1 і 8), це рівнозначні піни, які також з'єднуються. Символи, що трапляються лише один раз, — вільні піни.</p>
+<table><tr><th>Коло</th><th>Символ</th><th>Піни</th><th>Обґрунтування (входження символу)</th></tr>
+<tr><td class="code">N_0</td><td class="code">0</td><td class="code">U1.1, U1.8, U2.2, U5.1</td><td>U1 («026d6220», поз. 1, 8); U2 («80f6», поз. 2); U5 («0a5dfb622ab7», поз. 1)</td></tr>
+<tr><td class="code">N_2</td><td class="code">2</td><td class="code">U1.2, U1.6, U1.7, U5.8, U5.9</td><td>U1 («026d6220», поз. 2, 6, 7); U5 («0a5dfb622ab7», поз. 8, 9)</td></tr>
+<tr><td class="code">N_5</td><td class="code">5</td><td class="code">U3.1, U3.3, U4.3, U5.3</td><td>U3 («5b5d», поз. 1, 3); U4 («ac5d», поз. 3); U5 («0a5dfb622ab7», поз. 3)</td></tr>
+<tr><td class="code">N_6</td><td class="code">6</td><td class="code">U1.3, U1.5, U2.4, U5.7</td><td>U1 («026d6220», поз. 3, 5); U2 («80f6», поз. 4); U5 («0a5dfb622ab7», поз. 7)</td></tr>
+<tr><td class="code">N_a</td><td class="code">a</td><td class="code">U4.1, U5.2, U5.10</td><td>U4 («ac5d», поз. 1); U5 («0a5dfb622ab7», поз. 2, 10)</td></tr>
+<tr><td class="code">N_b</td><td class="code">b</td><td class="code">U3.2, U5.6, U5.11</td><td>U3 («5b5d», поз. 2); U5 («0a5dfb622ab7», поз. 6, 11)</td></tr>
+<tr><td class="code">N_d</td><td class="code">d</td><td class="code">U1.4, U3.4, U4.4, U5.4</td><td>U1 («026d6220», поз. 4); U3 («5b5d», поз. 4); U4 («ac5d», поз. 4); U5 («0a5dfb622ab7», поз. 4)</td></tr>
+<tr><td class="code">N_f</td><td class="code">f</td><td class="code">U2.3, U5.5</td><td>U2 («80f6», поз. 3); U5 («0a5dfb622ab7», поз. 5)</td></tr>
+</table>
+<p>Вільні піни (символ зустрічається один раз) виведені на роз'єм J1 (1×3, крок 2.54 мм), розміщений біля лівої, меншої (53.98 мм) сторони плати:</p>
+<table><tr><th>Пін J1</th><th>Коло</th><th>Звідки</th><th>Символ</th></tr>
+<tr><td>J1.1</td><td class="code">FREE_7</td><td>U5.12</td><td class="code">7</td></tr>
+<tr><td>J1.2</td><td class="code">FREE_8</td><td>U2.1</td><td class="code">8</td></tr>
+<tr><td>J1.3</td><td class="code">FREE_c</td><td>U4.2</td><td class="code">c</td></tr>
+</table>
+<h2>4. Бібліотечні елементи та принципова схема</h2>
+<p>Для кожного компонента створено символ (бібліотека <span class="code">lab2.kicad_sym</span>, назви пінів — символи GUID) і футпринт (<span class="code">lab2.pretty</span>):</p>
+<table><tr><th>Футпринт</th><th>Корпус</th><th>Розташування пінів</th><th>Контактні площадки</th></tr><tr><td>SQ4</td><td>4 × 4 мм</td><td>по 1 піну на сторону</td><td rowspan="3">THT, Ø1.0 мм, отвір 0.5 мм; пін 1 — квадратна площадка; нумерація проти годинникової стрілки від лівої сторони</td></tr><tr><td>SQ8</td><td>8 × 8 мм</td><td>по 2 піни на сторону, крок 3.5 мм</td></tr><tr><td>SQ12</td><td>12 × 12 мм</td><td>по 3 піни на сторону, крок 3.75 мм</td></tr><tr><td>CONN3</td><td>2.54 × 7.62 мм</td><td>1 × 3, крок 2.54 мм</td><td>THT, Ø1.7 мм, отвір 1.0 мм</td></tr></table>
+<p>З'єднання на схемі виконано мітками кіл (однакова назва мітки = електричне з'єднання). Перевірка ERC: <b>0 помилок, 0 попереджень</b>. Список кіл, експортований зі схеми, автоматично порівняно з розрахованим за GUID — збіг 11 з 11 кіл.</p>
+<p class="c"><img src="../img/schematic.png" width="580" height="410"></p>
+<p class="cap">Рис. 1. Принципова схема з усіма з'єднаннями (KiCad Eeschema)</p>
+<h2>5. Топологія друкованої плати</h2>
+<p><b>Форм-фактор:</b> контур 85.6 × 53.98 мм із радіусом кутів 3.18 мм — розмір кредитної картки ISO/IEC 7810 ID-1, тобто рівно гранично допустимий. Плата двошарова (F.Cu, B.Cu).</p>
+<p><b>Розміщення</b> за правилом «більше зв'язків — ближче»: U5 має спільні кола з усіма іншими компонентами (з U1 — 4 кола, з U2, U3, U4 — по 3), тому стоїть у центрі кластера; U1 і U3 — над і під U5; U2 і U4 мають вільні піни, тому розміщені між U5 і роз'ємом J1 біля лівої короткої сторони.</p>
+<table><tr><th>Елемент</th><th>X, мм</th><th>Y, мм</th></tr>
+<tr><td>J1</td><td>4.0</td><td>27.0</td></tr>
+<tr><td>U1</td><td>31.0</td><td>11.0</td></tr>
+<tr><td>U2</td><td>15.0</td><td>19.0</td></tr>
+<tr><td>U3</td><td>31.0</td><td>43.5</td></tr>
+<tr><td>U4</td><td>15.0</td><td>35.0</td></tr>
+<tr><td>U5</td><td>31.0</td><td>27.0</td></tr>
+</table><p style="font-size:12pt">Координати центрів відносно лівого верхнього кута плати.</p>
+<p><b>Трасування:</b> ширина доріжок 0.3 мм, зазор 0.2 мм. Автотрасувальник Freerouting прокладає доріжки лише під кутами 45° (злам 90° — 0, 45° — 36), тож гострих кутів немає. Загальна довжина доріжок — 305.5 мм (F.Cu — 170.1 мм, B.Cu — 135.4 мм), перехідних отворів — 0: двосторонні THT-площадки дозволяють переходити між шарами без via.</p>
+<p class="c"><img src="../img/pcb_layout.png" width="580" height="376"></p>
+<p class="cap">Рис. 2. Топологія плати: контур кредитної картки, розміщені компоненти, доріжки F.Cu (червоні) і B.Cu (сині)</p>
+<p class="c"><img src="../img/render_top_c.png" width="430" height="275"></p>
+<p class="cap">Рис. 3. 3D-вигляд плати зверху (kicad-cli pcb render)</p>
+<p class="c"><img src="../img/render_bottom_c.png" width="430" height="275"></p>
+<p class="cap">Рис. 4. 3D-вигляд плати знизу</p>
+<h2>6. Звіт DRC</h2>
+<p>DRC виконано командою <span class="code">kicad-cli pcb drc --schematic-parity --severity-all</span>, яка перевіряє зазори, короткі замикання, непідключені піни та відповідність плати схемі. Результат: <b>0 порушень, 0 непідключених пінів, 0 розбіжностей зі схемою</b>.</p>
+<pre>** Drc report for lab2.kicad_pcb **
+** Created on 2026-11-24T16:43:58 **
+** Report includes: Errors, Warnings, Exclusions **
+
+** Found 0 DRC violations **
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn&#x27;t match symbol&#x27;s footprint filters
+    - Footprint component type doesn&#x27;t match footprint pads
+
+** End of Report **</pre>
+<h3>Звіт ERC (схема)</h3>
+<pre>ERC report (2026-11-24T16:43:53, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+
+ ** ERC messages: 0  Errors 0  Warnings 0
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn&#x27;t match footprint filters</pre>
+<h2>7. Виробничі файли Gerber RS-274X</h2>
+<p>Сформовано комплект Gerber RS-274X (розширення X2, одиниці мм, формат 4.6) і файл свердління Excellon; архів <span class="code">lab2_gerber.zip</span> придатний для замовлення плати у виробника.</p>
+<table><tr><th>Файл</th><th>Призначення</th></tr>
+<tr><td class="code">lab2-B_Cu.gbl</td><td>мідь, нижній шар</td></tr>
+<tr><td class="code">lab2-B_Mask.gbs</td><td>паяльна маска, низ</td></tr>
+<tr><td class="code">lab2-B_Silkscreen.gbo</td><td>шовкографія, низ</td></tr>
+<tr><td class="code">lab2-Edge_Cuts.gm1</td><td>контур плати</td></tr>
+<tr><td class="code">lab2-F_Cu.gtl</td><td>мідь, верхній шар</td></tr>
+<tr><td class="code">lab2-F_Mask.gts</td><td>паяльна маска, верх</td></tr>
+<tr><td class="code">lab2-F_Silkscreen.gto</td><td>шовкографія, верх</td></tr>
+<tr><td class="code">lab2-job.gbrjob</td><td>опис комплекту (Gerber job)</td></tr>
+<tr><td class="code">lab2.drl</td><td>свердління (Excellon)</td></tr>
+</table>
+<h2>Висновок</h2>
+<p>За GUID <span class="code">026d6220-80f6-5b5d-ac5d-0a5dfb622ab7</span>, отриманим з ПІБ, визначено 5 квадратних компонентів (8, 4, 4, 4 і 12 мм), 8 кіл з'єднань і 3 вільні піни. У KiCad створено бібліотечні символи та футпринти, принципову схему (ERC без помилок) і двошарову плату у форм-факторі кредитної картки 85.6 × 53.98 мм. Компоненти розміщено за кількістю зв'язків, вільні піни виведено на роз'єм біля меншої сторони. Трасування виконано без гострих кутів (лише 45°), загальна довжина доріжок 305.5 мм без перехідних отворів. DRC підтвердив відсутність коротких замикань, порушень зазорів і непідключених пінів, а також повну відповідність плати схемі. Сформовано комплект Gerber RS-274X, тож плата готова до виробництва та відповідає жорсткому обмеженню форм-фактора.</p></div></body></html>
