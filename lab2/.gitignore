@@ -1,0 +1,5 @@
+# KiCad: локальні налаштування та кеші
+*.kicad_prl
+*-backups/
+fp-info-cache
+*.lck
