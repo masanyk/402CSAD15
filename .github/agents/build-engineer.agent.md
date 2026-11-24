@@ -63,6 +63,10 @@ author: "Процак Максим Степанович, КІ-402, Варіан�
 - [ ] Існує `tests/index.test.js` з тестом, що проходить
 - [ ] `npm test` виконується без помилок локально
 - [ ] `npm start` виводить "Hello, World!"
+- [ ] `npm run build` створює виконуваний файл `build/hello/hello` (+ `hello.cmd`), він виводить "Hello, World!"
+- [ ] Тест `BasicAddition` проходить
+- [ ] CI викладає артефакти `hello-<os>` для всіх трьох ОС
+- [ ] `build/` відсутній у Git; ведеться журнал `docs/ai-log.md`
 - [ ] `.github/workflows/ci.yml` містить матрицю: ubuntu, windows, macos
 - [ ] GitHub Actions проходить успішно для всіх трьох ОС
 - [ ] У Git відсутні `node_modules/` та `*.log`
