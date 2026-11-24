@@ -1,0 +1,11 @@
+*.py text eol=lf
+*.lsp text eol=crlf
+*.scr text eol=crlf
+*.ps1 text eol=crlf
+*.stl binary
+*.gcode text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.docx binary
+*.pdf binary
