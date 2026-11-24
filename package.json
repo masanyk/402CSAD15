@@ -5,12 +5,15 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
+    "build": "node scripts/build.js",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
   "jest": {
     "testEnvironment": "node",
-    "testMatch": ["**/tests/**/*.test.js"]
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
   },
   "devDependencies": {
     "jest": "^29.0.0"
